@@ -29,16 +29,16 @@ We generate the pseudo points via the depth completion model [PENet](https://arx
 | Cyclist | 85.56 | 71.84 | 63.43 | 87.21 | 72.87 | 66.85 | [CMF-IOU-MM.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
 
 ## TODO
-[] Add the results in the nuScenes and Waymo datasets.
-[] Add the corresponding config files.
-[] Add the weights or checkpoints of our model.
+* [ ] Add the results in the nuScenes and Waymo datasets.
+* [ ] Add the corresponding config files.
+* [ ] Add the weights or checkpoints of our model.
 
 <!-- ## FAQ -->
 
 <!-- - Since we rebuilt and unified the codebase for all datasets, the model accuracy of HEDNet and SAFDNet is slightly lower than the results released in the paper (by at most 0.3\% L2 mAPH on Waymo Open). You can run the previous branch ``HEDNet`` to get better results. We are trying to fix the gap and will update the code as soon as possible. -->
 <!-- - Release the model checkpoints on nuScenes and Argoverse2 datasets. -->
 
-## Citation
+<!-- ## Citation
 ```
 @inproceedings{zhang2023hednet,
   title={{HEDNet}: A Hierarchical Encoder-Decoder Network for 3D Object Detection in Point Clouds},
@@ -46,7 +46,7 @@ We generate the pseudo points via the depth completion model [PENet](https://arx
   booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
   year={2023},
 }
-```
+``` -->
 
 ## Acknowleadgement
 This work is partially supported by National Natural Science Foundation of China (Grant No. 62376153, 62402318, 24Z990200676, 62271237, U24A20220，62132006，62311530101) and Science Foundation of the Jiangxi Province of China (Grant No. 20242BAB26014).
