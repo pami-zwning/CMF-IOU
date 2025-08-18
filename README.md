@@ -1,6 +1,6 @@
 # CMF-IOU
 
-It is the official code release of [CMF-IOU (TCSVT 2025)](https://arxiv.org/pdf/2310.20234.pdf). We design a multistage cross-modal fusion 3D detection framework, termed CMF-IOU, to effectively address the challenge of aligning 3D spatial and 2D semantic information. The code is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
+It is the official code release of [CMF-IOU (TCSVT 2025)](). We design a multistage cross-modal fusion 3D detection framework, termed CMF-IOU, to effectively address the challenge of aligning 3D spatial and 2D semantic information. The code is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 
 ## Framework
 ![](./tools/images/framework.png)
