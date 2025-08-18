@@ -14,8 +14,10 @@ predicted and generated proposals. (c) The IoU joint prediction balances the IoU
 ```
 conda create -n cmfiou python=3.9
 conda activate cmfiou
-pip install -r requirementx.txt
+pip install -r requirements.txt
 python setup.py develop
+
+cd tools & bash run_cmfiou_kitti.sh
 ```
 
 ## Dataset Preparation
@@ -30,7 +32,7 @@ We generate the pseudo points via the depth completion model [PENet](https://arx
 
 ## TODO
 * [ ] Add the results in the nuScenes and Waymo datasets.
-* [ ] Add the corresponding config files.
+* [ ] Add the details of the pseudo point clouds generation.
 * [ ] Add the weights or checkpoints of our model.
 
 <!-- ## FAQ -->
