@@ -14,16 +14,20 @@ predicted and generated proposals. (c) The IoU joint prediction balances the IoU
 ```
 conda create -n cmfiou python=3.9
 conda activate cmfiou
+conda install pytorch==1.9.1 torchvision==0.10.1 torchaudio==0.9.1 cudatoolkit=11.3 -c pytorch -c conda-forge
 pip install -r requirements.txt
 python setup.py develop
-
-cd tools & bash run_cmfiou_kitti.sh
 ```
 
 ## Dataset Preparation
 We generate the pseudo points via the depth completion model [PENet](https://arxiv.org/abs/2103.00783) and [MVP](https://arxiv.org/abs/2111.06881).
 
 For the KITTI dataset, we employ the [PENet](https://arxiv.org/abs/2103.00783) model to generate pseudo points, using the following dataset configuration:
+
+* Generate the raw and pseudo data infos by running the following command:
+```
+python pcdet.datasets.kitti_dataset_mm create_kitti_infos tools/cfgs/dataset_configs/kitti_dataset.yaml
+```
 ```
 kitti
  |---ImageSets
@@ -33,11 +37,18 @@ kitti
  |---gt_database (optional)
  |---gt_database_mm
  |---training
+      |---calib & label_2 & image_2 & velodyne & velodyne_depth & planes (optional)
  |---testing
+      |---calib & image_2 & velodyne & velodyne_depth
  |---kitti_dbinfos_train_mm.pkl
  |---kitti_infos_train.pkl
  |---kitti_infos_val.pkl
  |---kitti_infos_test.pkl
+```
+
+## Running Command
+```
+cd tools & bash run_cmfiou_kitti.sh
 ```
 
 ### Results on KITTI validation dataset (mAP)
