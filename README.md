@@ -1,6 +1,6 @@
 # CMF-IOU
 
-It is the official code release of [CMF-IOU (TCSVT 2025)](). We design a multistage cross-modal fusion 3D detection framework, termed CMF-IOU, to effectively address the challenge of aligning 3D spatial and 2D semantic information. The code is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
+It is the official code release of [CMF-IOU (TCSVT 2025)](https://arxiv.org/abs/2508.12917v1). We design a multistage cross-modal fusion 3D detection framework, termed CMF-IOU, to effectively address the challenge of aligning 3D spatial and 2D semantic information. The code is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 
 ## Framework
 ![](./tools/images/framework.png)
@@ -23,32 +23,54 @@ cd tools & bash run_cmfiou_kitti.sh
 ## Dataset Preparation
 We generate the pseudo points via the depth completion model [PENet](https://arxiv.org/abs/2103.00783) and [MVP](https://arxiv.org/abs/2111.06881).
 
+For the KITTI dataset, we employ the [PENet](https://arxiv.org/abs/2103.00783) model to generate pseudo points, using the following dataset configuration:
+```
+kitti
+ |---ImageSets
+      |---train.txt
+      |---val.txt
+      |---test.txt
+ |---gt_database (optional)
+ |---gt_database_mm
+ |---training
+ |---testing
+ |---kitti_dbinfos_train_mm.pkl
+ |---kitti_infos_train.pkl
+ |---kitti_infos_val.pkl
+ |---kitti_infos_test.pkl
+```
+
 ### Results on KITTI validation dataset (mAP)
 | Category | 3D_Easy | 3D_Mod | 3D_Hard | BEV_Easy | BEV_Mod | BEV_Hard | Config |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Car | 91.92 | 85.14 | 80.63 | 95.72 | 92.07 | 87.25 | [CMF-IOU-MM.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
-| Pedestrain | 53.26 | 49.23 | 46.19 | 58.62 | 52.48 | 50.31 | [CMF-IOU-MM.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
-| Cyclist | 85.56 | 71.84 | 63.43 | 87.21 | 72.87 | 66.85 | [CMF-IOU-MM.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
+| Car | 91.92 | 85.14 | 80.63 | 95.72 | 92.07 | 87.25 | [CMF-IOU-KITTI.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
+| Pedestrain | 53.26 | 49.23 | 46.19 | 58.62 | 52.48 | 50.31 | [CMF-IOU-KITTI.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
+| Cyclist | 85.56 | 71.84 | 63.43 | 87.21 | 72.87 | 66.85 | [CMF-IOU-KITTI.yaml](./tools/cfgs/models/kitti/CMF-IOU-MM.yaml) |
 
-## TODO
-* [ ] Add the results in the nuScenes and Waymo datasets.
+
+### Results on nuScenes dataset
+| set | mAP | NDS |  Car  | Truck | C.V. | Bus | Trailer | Barrier | Motor. | Bicycle | Ped. | T.C. |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| validation | 69.1 | 72.4 | 88.2 | 62.4 | 28.9 | 77.5 | 48.5 | 71.3 | 77.2 | 64.7 | 90.1 | 82.1 |
+| testing | 69.8 | 72.6 | 87.5 | 59.0 | 36.2 | 69.5 | 65.1 | 78.9 | 74.9 | 48.2 | 90.4 | 88.3 |
+
+<!-- ## TODO
 * [ ] Add the details of the pseudo point clouds generation.
-* [ ] Add the weights or checkpoints of our model.
+* [ ] Release the weights or checkpoints of our model. -->
 
-<!-- ## FAQ -->
 
-<!-- - Since we rebuilt and unified the codebase for all datasets, the model accuracy of HEDNet and SAFDNet is slightly lower than the results released in the paper (by at most 0.3\% L2 mAPH on Waymo Open). You can run the previous branch ``HEDNet`` to get better results. We are trying to fix the gap and will update the code as soon as possible. -->
-<!-- - Release the model checkpoints on nuScenes and Argoverse2 datasets. -->
-
-<!-- ## Citation
+## Citation
 ```
-@inproceedings{zhang2023hednet,
-  title={{HEDNet}: A Hierarchical Encoder-Decoder Network for 3D Object Detection in Point Clouds},
-  author={Zhang, Gang and Chen, Junnan and Gao, Guohuan and Li, Jianmin and Hu, Xiaolin},
-  booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
-  year={2023},
+@misc{ning2025cmfioumultistagecrossmodalfusion,
+      title={CMF-IoU: Multi-Stage Cross-Modal Fusion 3D Object Detection with IoU Joint Prediction}, 
+      author={Zhiwei Ning and Zhaojiang Liu and Xuanang Gao and Yifan Zuo and Jie Yang and Yuming Fang and Wei Liu},
+      year={2025},
+      eprint={2508.12917},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.12917}, 
 }
-``` -->
+```
 
 ## Acknowleadgement
 This work is partially supported by National Natural Science Foundation of China (Grant No. 62376153, 62402318, 24Z990200676, 62271237, U24A20220，62132006，62311530101) and Science Foundation of the Jiangxi Province of China (Grant No. 20242BAB26014).
