@@ -1,8 +1,14 @@
-# CMF-IOU
+# [TCSVT2025] CMF-IOU: Multi-Stage Cross-Modal Fusion 3D Object Detection with IoU Joint Prediction
+
+<!-- <br> -->
+[Zhiwei Ning](https://scholar.google.com/citations?user=bGLASH0AAAAJ&hl=zh-CN), [Zhaojiang Liu](), [Xuanang Gao](), [Yifang Zuo](https://scholar.google.com/citations?user=U7EWrAEAAAAJ&hl=zh-CN), [Yang Jie](https://scholar.google.com/citations?hl=zh-CN&user=tmx7tu8AAAAJ), [Yuming Fang](https://scholar.google.com/citations?hl=zh-CN&user=_Tu-eHkAAAAJ), [Wei Liu](https://scholar.google.com/citations?user=Vbb5EGIAAAAJ&hl=zh-CN). 
+<!-- <br> -->
 
 It is the official code release of [CMF-IOU (TCSVT 2025)](https://arxiv.org/abs/2508.12917v1). We design a multistage cross-modal fusion 3D detection framework, termed CMF-IOU, to effectively address the challenge of aligning 3D spatial and 2D semantic information. The code is based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 
 ## Framework
+[![arXiv](https://img.shields.io/badge/arXiv-2508.12917-b31b1b.svg)](https://arxiv.org/abs/2508.12917v1)
+
 ![](./tools/images/framework.png)
 Overview of our CMF-IOU framework. We estimate the pseudo points by a depth completion network and integrate them with the LiDAR points as
 our input. (a) The bilateral cross-view enhancement backbone contains the S2D branch and the ResVC branch, where the S2D branch encodes the raw voxel
