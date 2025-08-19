@@ -1,1 +1,13 @@
-./data
+./data/kitti/gt_database
+./data/kitti/gt_database_mm
+./data/kitti/gt_database_pseudo_seguv
+./data/kitti/training
+./data/kitti/tracking
+./data/kitti/testing
+./data/kitti/kitti_dbinfos_train_mm.pkl
+./data/kitti/kitti_dbinfos_train.pkl
+./data/kitti/kitti_dbinfos_train_sfd_seguv.pkl
+./data/kitti/kitti_infos_test.pkl
+./data/kitti/kitti_infos_train.pkl
+./data/kitti/kitti_infos_val.pkl
+./data/kitti/kitti_infos_trainval.pkl
