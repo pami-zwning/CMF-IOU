@@ -320,6 +320,69 @@ MODEL:
                 HARD_BG_RATIO: 0.8
                 REG_FG_THRESH: [0.6, 0.55, 0.55]
 
+        SAMPLING_CONFIG:
+            BOX_CODER: ResidualCoder
+            STAGE0:
+                SAM_PER_IMAGE: 100
+                RANDOM_NUM: 50
+                SAMPLING_EACH_BBOX: 15
+
+                OFFSET_THRESHOLD: [ 0.1, 0.05, 0.03, 0.02]
+                SCALE_THRESHOLD: [ 0.9, 0.95, 0.97, 0.98]
+                IOU_THRESHOLD: [[0.7,0.8], [0.8,0.9], [0.9, 0.95], [0.95, 1.0]]
+                
+                FG_RATIO: 0.5
+                SAMPLE_ROI_BY_EACH_CLASS: True
+                CLS_SCORE_TYPE: roi_iou_x
+                CLS_FG_THRESH: [0.75]
+                CLS_BG_THRESH: [0.25]
+                CLS_BG_THRESH_LO: 0.1
+                HARD_BG_RATIO: 0.8
+                REG_FG_THRESH: [0.5]
+                ENABLE_HARD_SAMPLING: True
+                HARD_SAMPLING_THRESH: [0.5]
+                HARD_SAMPLING_RATIO: [0.5]
+            STAGE1:
+                SAM_PER_IMAGE: 100
+                RANDOM_NUM: 50
+                SAMPLING_EACH_BBOX: 15
+
+                OFFSET_THRESHOLD: [ 0.05, 0.03, 0.02]
+                SCALE_THRESHOLD: [ 0.95, 0.97, 0.98]
+                IOU_THRESHOLD: [[0.8,0.9], [0.9, 0.95], [0.95, 1.0]]
+
+                FG_RATIO: 0.5
+                SAMPLE_ROI_BY_EACH_CLASS: True
+                CLS_SCORE_TYPE: roi_iou_x
+                CLS_FG_THRESH: [0.75]
+                CLS_BG_THRESH: [0.25]
+                CLS_BG_THRESH_LO: 0.1
+                HARD_BG_RATIO: 0.8
+                REG_FG_THRESH: [0.55]
+                ENABLE_HARD_SAMPLING: True
+                HARD_SAMPLING_THRESH: [0.5]
+                HARD_SAMPLING_RATIO: [0.5]
+            STAGE2:
+                SAM_PER_IMAGE: 100
+                RANDOM_NUM: 60
+                SAMPLING_EACH_BBOX: 40
+
+                OFFSET_THRESHOLD: [ 0.03, 0.02]
+                SCALE_THRESHOLD: [ 0.97, 0.98]
+                IOU_THRESHOLD: [[0.9, 0.95], [0.95, 1.0]]
+                
+                FG_RATIO: 0.5
+                SAMPLE_ROI_BY_EACH_CLASS: True
+                CLS_SCORE_TYPE: roi_iou_x
+                CLS_FG_THRESH: [0.75]
+                CLS_BG_THRESH: [0.25]
+                CLS_BG_THRESH_LO: 0.1
+                HARD_BG_RATIO: 0.8
+                REG_FG_THRESH: [0.6]
+                ENABLE_HARD_SAMPLING: True
+                HARD_SAMPLING_THRESH: [0.5]
+                HARD_SAMPLING_RATIO: [0.5]
+
 
         LOSS_CONFIG:
             CLS_LOSS: BinaryCrossEntropy
